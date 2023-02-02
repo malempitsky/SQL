@@ -1,0 +1,33 @@
+--create a baby store database
+
+CREATE TABLE baby_store (id INTEGER PRIMARY KEY, aisle INTEGER, item TEXT, price INTEGER, quantity INTEGER);
+
+INSERT INTO baby_store VALUES (1, 4, "diapers", 36, 97);
+INSERT INTO baby_store VALUES (2, 4, "wipes", 17, 85);
+INSERT INTO baby_store VALUES (3, 9, "bottles", 24, 12);
+INSERT INTO baby_store VALUES (4, 9, "formula", 30, 5);
+INSERT INTO baby_store VALUES (5, 13, "onesies", 5, 25);
+INSERT INTO baby_store VALUES (6, 13, "shoes", 10, 13);
+INSERT INTO baby_store VALUES (7, 13, "swimsuit", 8, 8);
+INSERT INTO baby_store VALUES (8, 2, "puffs", 3, 12);
+INSERT INTO baby_store VALUES (9, 2, "teethers", 8, 10);
+INSERT INTO baby_store VALUES (10, 2, "plates", 8, 9);
+INSERT INTO baby_store VALUES (11, 3, "baby food", 8, 9);
+INSERT INTO baby_store VALUES (12, 13, "pants", 5, 14);
+INSERT INTO baby_store VALUES (13, 5, "bedding", 49, 3);
+INSERT INTO baby_store VALUES (14, 7, "crib", 179, 2);
+INSERT INTO baby_store VALUES (15, 7, "high chair", 140, 2);
+
+
+--display the database ordered by price
+
+SELECT * FROM baby_store ORDER BY price;
+
+
+--what is the avg price of the items
+
+SELECT AVG (price) FROM baby_store 
+
+--how many total items are sold at the store
+
+SELECT SUM (quantity) FROM baby_store;
