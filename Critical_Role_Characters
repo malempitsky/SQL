@@ -1,0 +1,43 @@
+--Create more than one table that correlate with each other
+
+CREATE TABLE critical_role (id INTEGER PRIMARY KEY AUTOINCREMENT, actor TEXT);
+
+INSERT INTO critical_role (actor) VALUES ("Laura Bailey");
+INSERT INTO critical_role (actor) VALUES ("Travis Willingham");
+INSERT INTO critical_role (actor) VALUES ("Marisha Ray");
+INSERT INTO critical_role (actor) VALUES ("Sam Riegel");
+INSERT INTO critical_role (actor) VALUES ("Liam O'Brien");
+INSERT INTO critical_role (actor) VALUES ("Ashley Johnson");
+INSERT INTO critical_role (actor) VALUES ("Taliesin Jaffe");
+
+CREATE TABLE vox_machina (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id INTEGER, character TEXT, class TEXT);
+
+INSERT INTO vox_machina (actor_id, character, class) VALUES (1, "Vex", "Ranger");
+INSERT INTO vox_machina (actor_id, character, class) VALUES (2, "Grog", "Barbarian");
+INSERT INTO vox_machina (actor_id, character, class) VALUES (3, "Keyleth", "Druid");
+INSERT INTO vox_machina (actor_id, character, class) VALUES (4, "Scanlan", "Bard");
+INSERT INTO vox_machina (actor_id, character, class) VALUES (5, "Vax", "Rogue");
+INSERT INTO vox_machina (actor_id, character, class) VALUES (6, "Pike", "Cleric");
+INSERT INTO vox_machina (actor_id, character, class) VALUES (7, "Percy", "Fighter");
+
+CREATE TABLE mighty_nein (id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id INTEGER, character TEXT, class TEXT);
+
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (1, "Jester", "Cleric");
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (2, "Fjord", "Fighter/Paladin");
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (3, "Beau", "Monk");
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (4, "Nott", "Rogue");
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (5, "Caleb", "Wizard");
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (6, "Yasha", "Barbarian");
+INSERT INTO mighty_nein (actor_id, character, class) VALUES (7, "Caduceus", "Cleric");
+
+
+--create a list with the actors and what characters/class they played in both campaigns
+
+SELECT critical_role.actor, vox_machina.character as VM_Name, vox_machina.class as VM_Class, mighty_nein.character as MN_Name, mighty_nein.class as MN_Class
+    FROM critical_role
+    JOIN vox_machina
+    ON critical_role.id=vox_machina.actor_id
+    JOIN mighty_nein
+    ON critical_role.id=mighty_nein.actor_id
+
+
