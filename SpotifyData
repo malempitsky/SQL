@@ -49,4 +49,3 @@ SELECT artist_name, avg(energy), avg(danceability)
     FROM BIT_DB.Spotifydata
     GROUP BY artist_name
     ORDER BY artist_name ASC;
-    
